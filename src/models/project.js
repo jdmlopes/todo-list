@@ -1,5 +1,4 @@
-//TODO
-export default function categoryFactory(name, taskList) {
+export default function projectFactory(name, taskList) {
   let _name = name;
   let _taskList = taskList;
 
@@ -7,7 +6,7 @@ export default function categoryFactory(name, taskList) {
     _taskList.push(task);
   };
 
-  const removeTask = (index) => {
+  const deleteTask = (index) => {
     _taskList.splice(index, 1);
   };
 
@@ -25,6 +24,6 @@ export default function categoryFactory(name, taskList) {
       _taskList = taskList;
     },
     addTask,
-    removeTask,
+    deleteTask
   };
 }

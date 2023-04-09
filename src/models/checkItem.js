@@ -18,5 +18,6 @@ export default function checkItemFactory(title, done) {
     set done(done) {
       _done = done;
     },
+    toggleDone,
   };
 }
