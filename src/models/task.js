@@ -5,7 +5,7 @@ export default function taskFactory(
   description,
   dueDate,
   checkList,
-  categoryName
+  projectName
 ) {
   let _title = title;
   let _done = done;
@@ -13,7 +13,7 @@ export default function taskFactory(
   let _description = description;
   let _dueDate = dueDate;
   let _checkList = checkList;
-  let _categoryName = categoryName;
+  let _projectName = projectName;
 
   return {
     get title() {
@@ -34,8 +34,8 @@ export default function taskFactory(
     get checkList() {
       return _checkList;
     },
-    get categoryName() {
-      return _categoryName;
+    get projectName() {
+      return _projectName;
     },
     set title(title) {
       _title = title;
@@ -55,8 +55,8 @@ export default function taskFactory(
     set checkList(checkList) {
       _checkList = checkList;
     },
-    set categoryName(categoryName) {
-      _categoryName = categoryName;
-    },
+    set projectName(projectName) {
+      _projectName = projectName;
+    }
   };
 }

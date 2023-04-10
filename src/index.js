@@ -2,54 +2,63 @@ import taskFactory from "./models/task.js";
 import * as listController from "./controllers/listController.js";
 import { format, parseISO, addDays } from "date-fns";
 
-let task = taskFactory(
+listController.addProject("c1");
+listController.addProject("c2");
+listController.addProject("c3");
+
+listController.addTask(
   "task 1",
   false,
   "high",
   "a task i have to do",
   format(new Date(), "yyyy-MM-dd"),
   [],
-  "tasks"
+  "c1"
 );
-let task2 = taskFactory(
+listController.addTask(
   "task 2",
-  false,
+  true,
   "low",
   "another task i have to do",
   format(parseISO("2023-04-20"), "yyyy-MM-dd"),
   [],
-  "tasks"
+  "c1"
 );
-let task3 = taskFactory(
+listController.addTask(
   "task 3",
   false,
   "low",
   "another task i have to do",
   format(new Date(), "yyyy-MM-dd"),
   [],
-  "tasks"
+  "c2"
 );
-let task4 = taskFactory(
+listController.addTask(
   "task 4",
-  false,
+  true,
   "low",
   "another task i have to do",
   format(parseISO("2023-04-15"), "yyyy-MM-dd"),
   [],
-  "tasks"
+  "c3"
 );
-let task5 = taskFactory(
+listController.addTask(
   "task 5",
   false,
   "low",
   "another task i have to do",
   format(parseISO("2023-04-30"), "yyyy-MM-dd"),
   [],
-  "tasks"
+  "c3"
 );
 
-listController.addProject("c1", [task, task2]);
-listController.addProject("c2", [task3, task4]);
-listController.addProject("c3", [task5]);
-listController.filterList("thisWeek");
+const checkList = [];
+listController.addCheckItem("st1", false, checkList);
+listController.addCheckItem("st2", true, checkList);
+
+listController.addCheckList(checkList, "c2", 0);
+console.table(checkList);
+
+listController.filterList("all");
+listController.sortList("done", false);
 console.table(listController.getTaskList());
